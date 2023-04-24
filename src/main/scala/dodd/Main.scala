@@ -13,12 +13,12 @@ object Main extends App {
 
   def isNumberString(str: String) = NUMBER_REGEX.matcher(str).matches()
 
-  def insertBefore(value: String, oth: Item[String]) = {
-    if (isNumberString(value) && isNumberString(oth.value)) {
-      new BigInteger(value).compareTo(new BigInteger(oth.value)) < 1
+  def insertBefore(value: String, item: Item[String]) = {
+    if (isNumberString(value) && isNumberString(item.value)) {
+      new BigInteger(value).compareTo(new BigInteger(item.value)) < 1
     }
     else {
-      value.compareTo(oth.value) < 1
+      value.compareTo(item.value) < 1
     }
   }
 
@@ -62,8 +62,8 @@ object Main extends App {
         }
       }
       else if (input == "l") {
-        println("\nList print...")
-        Helpers.printList(start)
+        println("\nLoop print...")
+        Helpers.printLoop(start)
       }
       else if (input == "i") {
         println("\nIterator print...")

@@ -4,9 +4,10 @@ import scala.annotation.tailrec
 
 class Item[T](val value: T, var next: Option[Item[T]]) extends Iterable[Option[Item[T]]] {
 
+  println(f"Creating item: $value%s")
+
   def printGetNext: Option[Item[T]] = {
-    print(value)
-    print(if (next.isEmpty) "\n" else ", ")
+    print(f"$value${if (next.isEmpty) "\n" else ", "}")
     next
   }
 

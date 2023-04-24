@@ -4,9 +4,7 @@ import scala.annotation.{tailrec, unused}
 
 object Helpers {
 
-  def insertItem[T](start: Option[Item[T]], value: T, insertBefore: (T, Item[T]) => Boolean)
-  : Option[Item[T]] = {
-    println(f"Creating item: $value%s")
+  def insertItem[T](start: Option[Item[T]], value: T, insertBefore: (T, Item[T]) => Boolean): Option[Item[T]] = {
     var head = start
     var current = head
     var previous: Option[Item[T]] = None
@@ -25,8 +23,7 @@ object Helpers {
     head
   }
 
-  def removeItem[T](start: Option[Item[T]], value: T, valueEquals: (Item[T], T) => Boolean)
-  : Option[Item[T]] = {
+  def removeItem[T](start: Option[Item[T]], value: T, valueEquals: (Item[T], T) => Boolean): Option[Item[T]] = {
     var head = start
     var current = head
     var previous: Option[Item[T]] = None
@@ -51,7 +48,7 @@ object Helpers {
 
   def removeAll[T](@unused start: Option[Item[T]]): Option[Item[T]] = None
 
-  def printList[T](start: Option[Item[T]]): Unit = {
+  def printLoop[T](start: Option[Item[T]]): Unit = {
     var item = start
     while (item.isDefined) {
       item = item.get.printGetNext
